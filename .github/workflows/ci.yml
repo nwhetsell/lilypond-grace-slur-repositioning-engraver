@@ -1,0 +1,40 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  Linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lilypond-version:
+          - 2.25.0
+          - 2.25.1
+          - 2.25.2
+          - 2.25.3
+          - 2.25.4
+          - 2.25.5
+          - 2.25.6
+          - 2.25.7
+          - 2.25.8
+          - 2.25.9
+          - 2.25.10
+          - 2.25.11
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Install LilyPond
+      run: |
+        wget --no-verbose https://gitlab.com/lilypond/lilypond/-/releases/v${{ matrix.lilypond-version }}/downloads/lilypond-${{ matrix.lilypond-version }}-linux-x86_64.tar.gz
+        tar -xf lilypond-${{ matrix.lilypond-version }}-linux-x86_64.tar.gz
+        echo "$(pwd)/lilypond-${{ matrix.lilypond-version }}/bin" >> $GITHUB_PATH
+
+    - name: Create PDFs
+      run: lilypond --output=test-${{ matrix.lilypond-version }} test.ly
+
+    - name: Archive PDFs
+      uses: actions/upload-artifact@main
+      with:
+        name: ${{ runner.os }} artifacts
+        path: '*.pdf'
