@@ -36,5 +36,5 @@ jobs:
     - name: Archive PDFs
       uses: actions/upload-artifact@main
       with:
-        name: ${{ runner.os }} artifacts
+        name: ${{ matrix.lilypond-version }} artifacts
         path: '*.pdf'
