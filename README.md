@@ -1,6 +1,6 @@
 # lilypond-grace-slur-repositioning-engraver
 
-You can use the file [grace-slur-repositioning-engraver.ily](grace-slur-repositioning-engraver.ily) in this repository with LilyPond v2.25.0 or later to reposition slurs attached to above-staff grace notes so that they do not collide with ledger lines. For example, running:
+You can use the file [grace-slur-repositioning-engraver.ily](grace-slur-repositioning-engraver.ily) in this repository with LilyPond v2.25.0 or later to reposition slurs attached to above-staff grace notes so they don’t collide with ledger lines, as recommended by [Elaine Gould, _Behind Bars_ (London: Faber Music, 2011)](https://www.fabermusic.com/shop/behind-bars-the-definitive-guide-to-music-notation-p6284), p 129. For example, running:
 
 ```sh
 lilypond --output=grace-slur-repositioning --svg - <<EOS
