@@ -4,7 +4,7 @@ You can use the file [grace-slur-repositioning-engraver.ily](grace-slur-repositi
 
 ```sh
 lilypond --output=grace-slur-repositioning --svg - <<EOS
-\version "2.24.0"
+\version "2.25.0"
 \include "grace-slur-repositioning-engraver.ily"
 \paper {
   page-breaking = #ly:one-line-auto-height-breaking
