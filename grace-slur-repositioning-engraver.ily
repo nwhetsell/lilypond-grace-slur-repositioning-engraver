@@ -50,7 +50,7 @@
                       (first-grace-stem-Y-extent (ly:grob-property first-grace-stem 'Y-extent))
                       (free-head-distance (ly:assoc-get 'free-head-distance (ly:grob-property slur 'details)))
                       (slur-left-position (+ (cdr first-grace-stem-Y-extent) free-head-distance)))
-                    (ly:grob-set-property! slur 'positions (cons slur-left-position 0))))))
+                    (ly:grob-set-property! slur 'positions `(,slur-left-position . 0))))))
 
             (set! slur '()))
 
