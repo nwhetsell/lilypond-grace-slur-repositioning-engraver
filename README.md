@@ -11,7 +11,7 @@ lilypond --output=grace-slur-repositioning --svg - <<EOS
   top-margin = 0
   left-margin = 0
   right-margin = 0
-  oddFooterMarkup= ##f
+  oddFooterMarkup = ##f
 }
 \layout {
   \context { \Voice \consists #Grace_slur_repositioning_engraver }
